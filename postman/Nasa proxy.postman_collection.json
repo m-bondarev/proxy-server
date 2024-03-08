@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "bbcc8e89-fe83-4459-90d8-c28b509f185f",
+		"name": "Nasa proxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33429353"
+	},
+	"item": [
+		{
+			"name": "Meteors",
+			"item": [
+				{
+					"name": "Get all objects close to Earth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/meteors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"meteors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
