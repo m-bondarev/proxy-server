@@ -1,12 +1,13 @@
-import express from "express";
-import meteorsRoutes from "./routes/meteors.js";
+import express from 'express';
+import meteorRoutes from './routes/meteors.js';
+import { errorHandler } from './errors/error.handler.js';
 
 const app = express();
 
-app.listen(process.env.PORT, (error) => {
-  error
-    ? console.log(error.message)
-    : console.log(`Running on port ${process.env.PORT}`);
-});
+app.use('/meteors', meteorRoutes);
 
-app.get("/meteors", meteorsRoutes);
+app.use(errorHandler);
+
+app.listen(process.env.PORT, (error) => {
+  error ? console.log(error.message) : console.log(`Running on port ${process.env.PORT}`);
+});

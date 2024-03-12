@@ -1,17 +1,19 @@
-import axios from "axios";
-import { mapAsteroidsData } from "../mappers/meteor.mapper.js";
+import axios from 'axios';
+import { mapAsteroidsData } from '../mappers/meteor.mapper.js';
+import { previousWorkWeek } from '../utils/dateUtils.js';
 
-export const getMeteorsData = async function (startDate, endDate) {
-  return axios
+export const getMeteorsData = async function (request, next) {
+  const date = request.date ?? new Date();
+  const datesObject = previousWorkWeek(date);
+
+  return await axios
     .get(process.env.API_URL, {
       params: {
-        start_date: startDate,
-        end_date: endDate,
+        start_date: datesObject.START_DATE,
+        end_date: datesObject.END_DATE,
         api_key: process.env.API_KEY,
       },
     })
-    .then((response) => mapAsteroidsData(response.data))
-    .catch((error) => {
-      console.log(error.message);
-    });
+    .then((response) => mapAsteroidsData(request, response.data))
+    .catch((error) => next(error));
 };

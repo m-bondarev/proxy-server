@@ -1,7 +1,16 @@
-import { previousFriday, previousMonday, format } from "date-fns";
+import { previousFriday, previousMonday, format } from 'date-fns';
 
-const TODAY = new Date();
-const DATE_FORMAT = "yyyy-MM-dd";
+const DATE_FORMAT = 'yyyy-MM-dd';
 
-export const END_DATE = format(previousFriday(TODAY), DATE_FORMAT);
-export const START_DATE = format(previousMonday(TODAY), DATE_FORMAT);
+export const previousWorkWeek = (date) => {
+  const friday = previousFriday(date);
+  const monday = previousMonday(friday);
+
+  const START_DATE = format(monday, DATE_FORMAT);
+  const END_DATE = format(friday, DATE_FORMAT);
+
+  return {
+    START_DATE,
+    END_DATE,
+  };
+};
