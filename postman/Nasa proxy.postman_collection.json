@@ -10,21 +10,172 @@
       "name": "Meteors",
       "item": [
         {
-          "name": "Get all objects close to Earth",
+          "name": "Get only number of asteroids",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const today = new Date();\r",
+                  "\r",
+                  "pm.collectionVariables.set('currentDate', today.toISOString().split('T')[0])"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:4000/meteors",
+              "raw": "http://localhost:4000/meteors?date={{currentDate}}&count=true",
               "protocol": "http",
               "host": ["localhost"],
               "port": "4000",
-              "path": ["meteors"]
+              "path": ["meteors"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{currentDate}}"
+                },
+                {
+                  "key": "count",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get only potential dangerous meteors",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const today = new Date();\r",
+                  "\r",
+                  "pm.collectionVariables.set('currentDate', today.toISOString().split('T')[0])"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["meteors"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{currentDate}}"
+                },
+                {
+                  "key": "were_dangerous_meteors",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get count and potential dangerous meteors",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const today = new Date();\r",
+                  "\r",
+                  "pm.collectionVariables.set('currentDate', today.toISOString().split('T')[0])"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true&count=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["meteors"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{currentDate}}"
+                },
+                {
+                  "key": "were_dangerous_meteors",
+                  "value": "true"
+                },
+                {
+                  "key": "count",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all meteors",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "const today = new Date();\r",
+                  "\r",
+                  "pm.collectionVariables.set('currentDate', today.toISOString().split('T')[0])"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/meteors?date={{currentDate}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["meteors"],
+              "query": [
+                {
+                  "key": "date",
+                  "value": "{{currentDate}}"
+                }
+              ]
             }
           },
           "response": []
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "currentDate",
+      "value": "2024-03-08"
+    },
+    {
+      "key": "currentDate",
+      "value": ""
     }
   ]
 }

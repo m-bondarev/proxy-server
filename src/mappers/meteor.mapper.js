@@ -22,15 +22,17 @@ const extractedMeteors = (asteroidsData) => {
 
 export const mapAsteroidsData = (query, asteroidsData) => {
   let json = {};
+
   const meteors = extractedMeteors(asteroidsData);
+  const dangerousMeteors = onlyDangerousMeteors(meteors);
 
   if (query.count === 'true' && query.wereDangerousMeteors !== 'true') {
     json.meteors = meteors.length;
   } else if (query.count === 'true' && query.wereDangerousMeteors === 'true') {
     json.count = meteors.length;
-    json.meteors = onlyDangerousMeteors(meteors);
+    json.meteors = dangerousMeteors;
   } else {
-      json.meteors = query.wereDangerousMeteors ? onlyDangerousMeteors(meteors) : meteors;
+    json.meteors = query.wereDangerousMeteors ? dangerousMeteors : meteors;
   }
 
   return json;

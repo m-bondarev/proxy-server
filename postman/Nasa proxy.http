@@ -2,5 +2,20 @@
 
 ###
 # group: Meteors
-# @name Get all objects close to Earth
-GET http://localhost:4000/meteors
+# @name Get only number of asteroids
+GET http://localhost:4000/meteors?date=2024-03-08&count=true
+
+###
+# group: Meteors
+# @name Get only potential dangerous meteors
+GET http://localhost:4000/meteors?date=2024-03-08&were_dangerous_meteors=true
+
+###
+# group: Meteors
+# @name Get count and potential dangerous meteors
+GET http://localhost:4000/meteors?date=2024-03-08&were_dangerous_meteors=true&count=true
+
+###
+# group: Meteors
+# @name Get all meteors
+GET http://localhost:4000/meteors?date=2024-03-08
