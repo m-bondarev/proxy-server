@@ -6,5 +6,5 @@ export const defaultErrorHandler = (error, request, response) => {
 };
 
 export const handleError = (res, status, message) => {
-  res.status(status).json({ message: `${message}` }); // Or render a custom 404 template
+  res.status(status).json({ message: `${message}` });
 };
