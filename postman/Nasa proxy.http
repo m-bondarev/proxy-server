@@ -21,7 +21,7 @@ GET http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=tr
 GET http://localhost:4000/meteors?date={{currentDate}}
 
 ###
-# group: Meteors
+# group: User
 # @name Process user
 POST http://localhost:4000/user
 Content-Type: application/json
