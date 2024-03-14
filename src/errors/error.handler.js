@@ -4,7 +4,3 @@ export const defaultErrorHandler = (error, request, response) => {
 
   response.status(status).json({ message: `${message}` });
 };
-
-export const handleError = (res, status, message) => {
-  res.status(status).json({ message: `${message}` });
-};

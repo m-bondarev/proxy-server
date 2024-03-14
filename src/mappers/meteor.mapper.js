@@ -13,7 +13,8 @@ const extractedMeteors = (asteroidsData) => {
         },
         is_potentially_hazardous_asteroid: asteroid.is_potentially_hazardous_asteroid,
         close_approach_date_full: asteroid.close_approach_data[0].close_approach_date_full,
-        relative_velocity_kps: asteroid.close_approach_data[0].relative_velocity.kilometers_per_second
+        relative_velocity_kps:
+          asteroid.close_approach_data[0].relative_velocity.kilometers_per_second,
       };
     });
 };
@@ -21,17 +22,16 @@ const extractedMeteors = (asteroidsData) => {
 export const mapAsteroidsData = (query, asteroidsData) => {
   let json = {};
 
-  const meteors = extractedMeteors(asteroidsData);
-  const dangerousMeteors = onlyDangerousMeteors(meteors);
+  const meteors =
+    query.wereDangerousMeteors === 'true'
+      ? onlyDangerousMeteors(extractedMeteors(asteroidsData))
+      : extractedMeteors(asteroidsData);
 
-  if (query.count === 'true' && query.wereDangerousMeteors !== 'true') {
-    json.meteors = meteors.length;
-  } else if (query.count === 'true' && query.wereDangerousMeteors === 'true') {
+  if (query.count === 'true') {
     json.count = meteors.length;
-    json.meteors = dangerousMeteors;
-  } else {
-    json.meteors = query.wereDangerousMeteors ? dangerousMeteors : meteors;
   }
+
+  json.meteors = meteors;
 
   return json;
 };
