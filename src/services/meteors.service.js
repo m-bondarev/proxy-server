@@ -2,11 +2,11 @@ import axios from 'axios';
 import { mapAsteroidsData } from '../mappers/meteor.mapper.js';
 import { previousWorkWeek } from '../utils/dateUtils.js';
 
-export const getMeteorsData = async function (request, next) {
+export const getMeteorsData = function (request, next) {
   const date = request.date ?? new Date();
   const datesObject = previousWorkWeek(date);
 
-  return await axios
+  return axios
     .get(process.env.API_URL, {
       params: {
         start_date: datesObject.START_DATE,
