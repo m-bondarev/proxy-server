@@ -43,7 +43,9 @@ npm run prettier
 
 Environment variables are stored in .env file. To start the application make sure all env variables are described
 
-- **API_URL** - URL providing a continuous feed of asteroid information. You can find more details [here](https://api.nasa.gov/)
+- **METEORS_API_URL** - URL providing a continuous feed of asteroid information. You can find more details [here](https://api.nasa.gov/)
+- **ROVER_API_URL** - URL to collect image data gathered by NASA's Curiosity
+- **DATE_TEMPLATE** - defines the pattern used to convert timestamps into desired date
 - **API_KEY** - api.nasa.gov API Key for expanded usage
 - **PORT** - port number used by the proxy server
 

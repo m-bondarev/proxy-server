@@ -1,6 +1,6 @@
 import { previousFriday, previousMonday, format } from 'date-fns';
 
-const DATE_FORMAT = 'yyyy-MM-dd';
+const DATE_FORMAT = process.env.DATE_TEMPLATE;
 
 export const previousWorkWeek = (date) => {
   const friday = previousFriday(date);

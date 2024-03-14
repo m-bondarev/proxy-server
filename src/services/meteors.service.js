@@ -7,7 +7,7 @@ export const getMeteorsData = function (request, next) {
   const datesObject = previousWorkWeek(date);
 
   return axios
-    .get(process.env.API_URL, {
+    .get(process.env.METEORS_API_URL, {
       params: {
         start_date: datesObject.START_DATE,
         end_date: datesObject.END_DATE,
