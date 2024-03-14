@@ -3,19 +3,31 @@
 ###
 # group: Meteors
 # @name Get only number of asteroids
-GET http://localhost:4000/meteors?date=2024-03-08&count=true
+GET http://localhost:4000/meteors?date={{currentDate}}&count=true
 
 ###
 # group: Meteors
 # @name Get only potential dangerous meteors
-GET http://localhost:4000/meteors?date=2024-03-08&were_dangerous_meteors=true
+GET http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true
 
 ###
 # group: Meteors
 # @name Get count and potential dangerous meteors
-GET http://localhost:4000/meteors?date=2024-03-08&were_dangerous_meteors=true&count=true
+GET http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true&count=true
 
 ###
 # group: Meteors
 # @name Get all meteors
-GET http://localhost:4000/meteors?date=2024-03-08
+GET http://localhost:4000/meteors?date={{currentDate}}
+
+###
+# group: Meteors
+# @name Process user
+POST http://localhost:4000/user
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "name": "{{$randomFullName}}",
+    "api_key": "your api key"
+}
