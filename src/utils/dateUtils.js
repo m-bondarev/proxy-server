@@ -1,13 +1,12 @@
 import { previousFriday, previousMonday, format } from 'date-fns';
-
-const DATE_FORMAT = process.env.DATE_TEMPLATE;
+import { DATE_TEMPLATE } from '../constants/constants.js';
 
 export const previousWorkWeek = (date) => {
   const friday = previousFriday(date);
   const monday = previousMonday(friday);
 
-  const START_DATE = format(monday, DATE_FORMAT);
-  const END_DATE = format(friday, DATE_FORMAT);
+  const START_DATE = format(monday, DATE_TEMPLATE);
+  const END_DATE = format(friday, DATE_TEMPLATE);
 
   return {
     START_DATE,
