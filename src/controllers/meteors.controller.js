@@ -1,14 +1,13 @@
-import { getMeteorsData } from "../services/meteors.service.js";
-import { START_DATE, END_DATE } from "../utils/dateUtils.js";
+import { getMeteorsData } from '../services/meteors.service.js';
+import { mapQueryToMeteorRequest } from '../mappers/query.mapper.js';
 
-export const getMeteors = async (req, res) => {
+export const getMeteors = async (req, res, next) => {
   try {
-    const data = await getMeteorsData(START_DATE, END_DATE);
+    const request = mapQueryToMeteorRequest(req.query);
+    const data = await getMeteorsData(request, next);
 
     res.json(data);
   } catch (error) {
-    console.log(error.message);
-
-    res.status(500).json({ message: "Error fetching data from NASA API" });
+    next(error);
   }
 };
