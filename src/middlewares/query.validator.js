@@ -15,23 +15,25 @@ export const queryValidator = (req, res, next) => {
 
   validatorObjects
     .filter((object) => object.name.startsWith(schema))
-    .map((object) =>
-      object.validator.validateAsync(req.query, {
+    .map((object) => {
+      const objectToValidate = schema === 'user' ? req.body : req.query;
+
+      return object.validator.validateAsync(objectToValidate, {
         abortEarly: false,
-      }),
-    )
-    .map(promise => {
+      });
+    })
+    .map((promise) => {
       return promise
-        .then(value => {
+        .then((value) => {
           req.query = value;
           next();
         })
-        .catch(reason => failedValidation(res, reason));
+        .catch((reason) => failedValidation(res, reason));
     });
 };
 
 const failedValidation = (res, reason) => {
-  const ref= uuidV4();
+  const ref = uuidV4();
   const status = HttpStatusCode.UnprocessableEntity;
 
   console.error(`Validation error ${ref} - ${reason.message}`);
@@ -42,7 +44,7 @@ const failedValidation = (res, reason) => {
     errors: reason.details.map(({ message, type }) => ({
       message: message.replace(/['"]/g, ''),
       type,
-    }))
+    })),
   };
 
   return res.status(status).json(error);

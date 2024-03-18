@@ -1,1 +1,1 @@
-export const DATE_TEMPLATE = 'yyyy-MM-dd'
+export const DATE_TEMPLATE = 'yyyy-MM-dd';

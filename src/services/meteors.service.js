@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { mapAsteroidsData } from '../mappers/meteor.mapper.js';
 import { previousWorkWeek } from '../utils/dateUtils.js';
-import { environment } from '../config/environment.js'
+import { environment } from '../config/environment.js';
 
 export const getMeteorsData = function (request, next) {
   const date = request.date ?? new Date();

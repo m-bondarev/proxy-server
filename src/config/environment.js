@@ -1,13 +1,8 @@
 import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
-const {
-  METEORS_API_URL,
-  API_KEY,
-  ROVER_API_URL,
-  PORT,
-} = process.env;
+const { METEORS_API_URL, API_KEY, ROVER_API_URL, PORT, SENTRY_DSN } = process.env;
 
 export const environment = {
   nasa: {
@@ -17,5 +12,8 @@ export const environment = {
   },
   server: {
     port: PORT || 4000,
+  },
+  sentry: {
+    dsn: SENTRY_DSN,
   },
 };
