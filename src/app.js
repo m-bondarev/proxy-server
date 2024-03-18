@@ -3,10 +3,13 @@ import meteorRouter from './routes/meteors.js';
 import userRouter from './routes/user.js';
 import { defaultErrorHandler } from './errors/error.handler.js';
 import { environment } from './config/environment.js';
+import { queryValidator } from './middlewares/query.validator.js';
 
 const app = express();
 
 app.use(express.json());
+
+app.use(queryValidator);
 
 app.use('/meteors', meteorRouter);
 app.use('/user', userRouter);
