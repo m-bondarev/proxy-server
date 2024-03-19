@@ -31,13 +31,9 @@
             "url": {
               "raw": "http://localhost:4000/meteors?date={{currentDate}}&count=true",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "4000",
-              "path": [
-                "meteors"
-              ],
+              "path": ["meteors"],
               "query": [
                 {
                   "key": "date",
@@ -74,13 +70,9 @@
             "url": {
               "raw": "http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "4000",
-              "path": [
-                "meteors"
-              ],
+              "path": ["meteors"],
               "query": [
                 {
                   "key": "date",
@@ -117,13 +109,9 @@
             "url": {
               "raw": "http://localhost:4000/meteors?date={{currentDate}}&were_dangerous_meteors=true&count=true",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "4000",
-              "path": [
-                "meteors"
-              ],
+              "path": ["meteors"],
               "query": [
                 {
                   "key": "date",
@@ -164,13 +152,9 @@
             "url": {
               "raw": "http://localhost:4000/meteors?date={{currentDate}}",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "4000",
-              "path": [
-                "meteors"
-              ],
+              "path": ["meteors"],
               "query": [
                 {
                   "key": "date",
@@ -203,13 +187,9 @@
             "url": {
               "raw": "http://localhost:4000/user",
               "protocol": "http",
-              "host": [
-                "localhost"
-              ],
+              "host": ["localhost"],
               "port": "4000",
-              "path": [
-                "user"
-              ]
+              "path": ["user"]
             }
           },
           "response": []

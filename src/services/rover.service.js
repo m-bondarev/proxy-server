@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { format } from 'date-fns';
 import { DATE_TEMPLATE } from '../constants/constants.js';
-import { environment } from '../config/environment.js'
+import { environment } from '../config/environment.js';
 
 const roverBasePath = environment.nasa.roverApiUrl;
 

@@ -23,11 +23,11 @@ export const mapAsteroidsData = (query, asteroidsData) => {
   let json = {};
 
   const meteors =
-    query.wereDangerousMeteors === 'true'
+    query.wereDangerousMeteors === true
       ? onlyDangerousMeteors(extractedMeteors(asteroidsData))
       : extractedMeteors(asteroidsData);
 
-  if (query.count === 'true') {
+  if (query.count === true) {
     json.count = meteors.length;
   }
 
